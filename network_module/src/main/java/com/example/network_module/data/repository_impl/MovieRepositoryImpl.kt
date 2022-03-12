@@ -1,6 +1,6 @@
 package com.example.network_module.data.repository_impl
 
-import com.example.network_module.data.MoviesAPI
+import com.example.network_module.data.api.MoviesAPI
 import com.example.network_module.data.datamodels.MoviesResponse
 import com.example.network_module.data.datamodels.ResultResource
 import com.example.network_module.data.repository.MoviesRepository
