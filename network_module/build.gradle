@@ -12,7 +12,7 @@ android {
         minSdk 21
         targetSdk 31
         buildConfigField "String", "BASE_URL", "\"http://www.omdbapi.com/?\""
-        buildConfigField "String", "API_KEY", "\"apikey=24db60e1&\""
+        buildConfigField "String", "API_KEY", "\"i=tt3896198&apikey=24db60e1\""
         testInstrumentationRunner "androidx.test.runner.AndroidJUnitRunner"
         consumerProguardFiles "consumer-rules.pro"
     }
