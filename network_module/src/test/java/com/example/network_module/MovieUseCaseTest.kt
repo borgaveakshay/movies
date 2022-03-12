@@ -3,7 +3,7 @@ package com.example.network_module
 import com.example.network_module.data.datamodels.MoviesResponse
 import com.example.network_module.data.datamodels.ResultResource
 import com.example.network_module.data.repository.MoviesRepository
-import com.example.network_module.domain.MoviesUseCase
+import com.example.network_module.domain.movie_usecases.MoviesUseCase
 import com.example.network_module.utils.TestUtils
 import com.google.common.truth.Truth
 import io.mockk.coEvery
