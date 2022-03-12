@@ -1,4 +1,4 @@
-package com.example.network_module.data
+package com.example.network_module.data.api
 
 import com.example.network_module.data.datamodels.MoviesResponse
 import retrofit2.http.GET
