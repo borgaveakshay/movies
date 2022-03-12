@@ -12,20 +12,15 @@ android {
         targetSdk 31
         versionCode 1
         versionName "1.0"
-
         testInstrumentationRunner "androidx.test.runner.AndroidJUnitRunner"
     }
 
     buildTypes {
         release {
-           // buildConfigField "String", "BASE_URL", "http://www.omdbapi.com/?"
-            //buildConfigField "String", "API_KEY", "apikey=24db60e1&"
             minifyEnabled false
             proguardFiles getDefaultProguardFile('proguard-android-optimize.txt'), 'proguard-rules.pro'
         }
         debug {
-           // buildConfigField "String", "BASE_URL", "http://www.omdbapi.com/?"
-            //buildConfigField "String", "API_KEY", "apikey=24db60e1&"
             proguardFiles getDefaultProguardFile('proguard-android-optimize.txt'), 'proguard-rules.pro'
         }
 
