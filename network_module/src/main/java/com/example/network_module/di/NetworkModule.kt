@@ -2,7 +2,7 @@ package com.example.network_module.utils
 
 
 import com.example.network_module.BuildConfig
-import com.example.network_module.data.MoviesAPI
+import com.example.network_module.data.api.MoviesAPI
 import dagger.Module
 import dagger.Provides
 import dagger.hilt.InstallIn
