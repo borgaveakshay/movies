@@ -4,6 +4,10 @@ import android.os.Bundle
 import android.widget.Toast
 import androidx.activity.viewModels
 import androidx.appcompat.app.AppCompatActivity
+import androidx.databinding.DataBindingUtil
+import androidx.recyclerview.widget.LinearLayoutManager
+import com.example.movies.adapters.MovieAdapter
+import com.example.movies.databinding.ActivityMainBinding
 import com.example.movies.viewmodels.MoviesViewModel
 import com.example.network_module.data.datamodels.Status
 import dagger.hilt.android.AndroidEntryPoint
@@ -11,11 +15,19 @@ import dagger.hilt.android.AndroidEntryPoint
 @AndroidEntryPoint
 class MainActivity : AppCompatActivity() {
     private val viewModel by viewModels<MoviesViewModel>()
+    private val movieAdapter by lazy { MovieAdapter() }
 
     override fun onCreate(savedInstanceState: Bundle?) {
         super.onCreate(savedInstanceState)
-        setContentView(R.layout.activity_main)
-        viewModel.searchMovies("Jab We Met")
+        val dataBinding =
+            DataBindingUtil.setContentView<ActivityMainBinding>(this, R.layout.activity_main)
+        dataBinding.viewModel = viewModel
+
+        with(dataBinding) {
+            showResults.layoutManager =
+                LinearLayoutManager(this@MainActivity, LinearLayoutManager.VERTICAL, false)
+            showResults.adapter = movieAdapter
+        }
 
         viewModel.movieSearchLiveData.observe(this) {
             when (it.status) {

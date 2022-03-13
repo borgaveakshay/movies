@@ -1,3 +1,5 @@
 <resources>
     <string name="app_name">Movies</string>
+    <string name="search_movies">Search Movies</string>
+    <string name="image_label">image_label</string>
 </resources>

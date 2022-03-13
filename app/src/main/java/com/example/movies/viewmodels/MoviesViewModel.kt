@@ -17,10 +17,10 @@ class MoviesViewModel @Inject constructor(
 
     val movieSearchLiveData = MutableLiveData<ResultResource<MoviesResponse?>>()
 
-    fun searchMovies(query: String) {
+    fun searchMovies(query: CharSequence) {
         movieSearchLiveData.postValue(ResultResource.loading<MoviesResponse?>())
         viewModelScope.launch {
-            movieSearchLiveData.postValue(moviesUseCase(query))
+            movieSearchLiveData.postValue(moviesUseCase(query.toString()))
         }
     }
 
