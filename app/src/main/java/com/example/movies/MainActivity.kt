@@ -26,7 +26,7 @@ class MainActivity : AppCompatActivity() {
                     Toast.makeText(this, "Error: ${it.errorMessage}", Toast.LENGTH_LONG).show()
                 }
                 Status.SUCCESS -> {
-                    Toast.makeText(this, it.data?.Actors, Toast.LENGTH_LONG).show()
+                    Toast.makeText(this, it.data?.Search?.size.toString(), Toast.LENGTH_LONG).show()
                 }
             }
         }
