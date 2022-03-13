@@ -5,6 +5,7 @@ import android.widget.Toast
 import androidx.activity.viewModels
 import androidx.appcompat.app.AppCompatActivity
 import androidx.databinding.DataBindingUtil
+import androidx.recyclerview.widget.DividerItemDecoration
 import androidx.recyclerview.widget.LinearLayoutManager
 import com.example.movies.adapters.MovieAdapter
 import com.example.movies.databinding.ActivityMainBinding
@@ -25,7 +26,13 @@ class MainActivity : AppCompatActivity() {
 
         with(dataBinding) {
             showResults.layoutManager =
-                LinearLayoutManager(this@MainActivity, LinearLayoutManager.HORIZONTAL, false)
+                LinearLayoutManager(this@MainActivity, LinearLayoutManager.VERTICAL, false)
+            showResults.addItemDecoration(
+                DividerItemDecoration(
+                    this@MainActivity,
+                    DividerItemDecoration.VERTICAL
+                )
+            )
             showResults.adapter = movieAdapter
         }
 
