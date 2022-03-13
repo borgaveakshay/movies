@@ -16,9 +16,20 @@
             android:inputType="text"
             android:onTextChanged="@{(text, start, before, count) -> viewModel.searchMovies(text)}"
             app:layout_constraintEnd_toEndOf="parent"
+            app:layout_constraintHorizontal_bias="0.0"
             app:layout_constraintStart_toStartOf="parent"
             app:layout_constraintTop_toTopOf="parent"
             tools:ignore="Autofill,LabelFor" />
+
+        <ProgressBar
+            android:id="@+id/loader"
+            android:layout_width="32dp"
+            android:layout_height="32dp"
+            android:layout_marginEnd="@dimen/medium_margins"
+            android:visibility="@{viewModel.movieSearchLiveData.status == Status.LOADING ? View.VISIBLE: View.GONE, default = visible }"
+            app:layout_constraintBottom_toBottomOf="@+id/searchMovie"
+            app:layout_constraintEnd_toEndOf="@+id/searchMovie"
+            app:layout_constraintTop_toTopOf="parent" />
 
         <androidx.recyclerview.widget.RecyclerView
             android:id="@+id/showResults"
@@ -32,6 +43,11 @@
     </androidx.constraintlayout.widget.ConstraintLayout>
 
     <data>
+
+        <import type="android.view.View" />
+
+        <import type="com.example.network_module.data.datamodels.Status" />
+
         <variable
             name="viewModel"
             type="com.example.movies.viewmodels.MoviesViewModel" />

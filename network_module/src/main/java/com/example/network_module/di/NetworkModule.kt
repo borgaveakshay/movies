@@ -20,14 +20,9 @@ object NetworkModule {
     @Provides
     @Singleton
     fun getRetrofit(): Retrofit {
-        val okhttp = HttpLoggingInterceptor()
-        okhttp.level = HttpLoggingInterceptor.Level.BODY
-        val okhttpClient = OkHttpClient.Builder()
-        okhttpClient.addInterceptor(okhttp)
         return Retrofit.Builder()
             .baseUrl(BuildConfig.BASE_URL)
             .addConverterFactory(GsonConverterFactory.create())
-            .client(okhttpClient.build())
             .build()
     }
 

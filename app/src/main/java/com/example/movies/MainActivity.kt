@@ -25,20 +25,20 @@ class MainActivity : AppCompatActivity() {
 
         with(dataBinding) {
             showResults.layoutManager =
-                LinearLayoutManager(this@MainActivity, LinearLayoutManager.VERTICAL, false)
+                LinearLayoutManager(this@MainActivity, LinearLayoutManager.HORIZONTAL, false)
             showResults.adapter = movieAdapter
         }
 
         viewModel.movieSearchLiveData.observe(this) {
             when (it.status) {
                 Status.LOADING -> {
-                    Toast.makeText(this, "Fetching results..", Toast.LENGTH_SHORT).show()
+//                    Toast.makeText(this, "Fetching results..", Toast.LENGTH_SHORT).show()
                 }
                 Status.ERROR -> {
                     Toast.makeText(this, "Error: ${it.errorMessage}", Toast.LENGTH_LONG).show()
                 }
                 Status.SUCCESS -> {
-                    Toast.makeText(this, it.data?.Search?.size.toString(), Toast.LENGTH_LONG).show()
+                    movieAdapter.submitList(it.data?.Search)
                 }
             }
         }
