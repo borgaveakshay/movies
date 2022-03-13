@@ -1,10 +1,9 @@
 package com.example.movies.viewmodels
 
-import androidx.lifecycle.MutableLiveData
-import androidx.lifecycle.ViewModel
-import androidx.lifecycle.viewModelScope
+import androidx.lifecycle.*
 import com.example.network_module.data.datamodels.MoviesResponse
 import com.example.network_module.data.datamodels.ResultResource
+import com.example.network_module.data.datamodels.Status
 import com.example.network_module.domain.movie_usecases.MoviesUseCase
 import dagger.hilt.android.lifecycle.HiltViewModel
 import kotlinx.coroutines.launch
@@ -16,6 +15,8 @@ class MoviesViewModel @Inject constructor(
 ) : ViewModel() {
 
     val movieSearchLiveData = MutableLiveData<ResultResource<MoviesResponse?>>()
+    val isLoading: LiveData<Boolean> =
+        Transformations.map(movieSearchLiveData) { it.status == Status.LOADING }
 
     fun searchMovies(query: CharSequence) {
         movieSearchLiveData.postValue(ResultResource.loading<MoviesResponse?>())

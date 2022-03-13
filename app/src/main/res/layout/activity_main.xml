@@ -26,7 +26,7 @@
             android:layout_width="32dp"
             android:layout_height="32dp"
             android:layout_marginEnd="@dimen/medium_margins"
-            android:visibility="@{viewModel.movieSearchLiveData.status == Status.LOADING ? View.VISIBLE: View.GONE, default = visible }"
+            android:visibility="@{viewModel.isLoading() ? View.VISIBLE: View.GONE, default = visible }"
             app:layout_constraintBottom_toBottomOf="@+id/searchMovie"
             app:layout_constraintEnd_toEndOf="@+id/searchMovie"
             app:layout_constraintTop_toTopOf="parent" />
